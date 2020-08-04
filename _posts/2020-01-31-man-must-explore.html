@@ -55,7 +55,14 @@ background: "/img/posts/06.jpg"
 <p>There are many tools in the market, howevere in this blog we will talk about how <code>dbt(data build tool)</code> in combination with <code>gitlab ci</code> can be used to build a simple SQL pipeline to solve the above problem</p>
 
 <h5>DBT(data build tool)</h5>
+<p>dbt or data build tool is an open source command line tool that enables analysts to do the data transformation work that happens after data is loaded to the data warehouse.</p>
 
+<p>It sits at the end of the 'ELT' stack, i.e. transformation which is carried out within the database.It takes code and compiles it to SQL then runs this against the datawarehouse.The SQL code is stored in a <code>.sql</code> file called a model. These models are single <code>SELECT...</code> statements that define the resulting data set after compilation</p>
+
+<p>Using principles of software engineering, dbt enable analysts:</p>
+<ul>
+  <li>Document SQL code - This is stored in the form of a static <code>HTML</code> site that can be viewed by users of the data</li>
+  <li>Version control SQL models - dbt uses </li>
 
 <h5>Gitlab CI</h5>
 
