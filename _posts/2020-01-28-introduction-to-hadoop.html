@@ -38,43 +38,36 @@ background: "/img/posts/03.jpg"
 	#Create admin user<br/>
 
 
-	// switch to the admin database<br>
-	use admin<br>
+	// switch to the admin database<br/>
+	use admin<br/>
 
-	// create a new user to be stored in the admin database<br>
-	db.createUser({ <br>
-    	user:"admin", <br>
-    	pwd:"xxxxxxxxx", <br>
-    	roles:[<br>
+	// create a new user to be stored in the admin database<br/>
+	db.createUser({user:"admin",pwd:"xxxxxxxxx",roles:[<br>
         	{ role: "userAdminAnyDatabase", db: "admin"  }<br>
-    	] <br>
-		})<br>
+    	] 
+		})<br/>
 
-	// log out of mongo shell<br>
-	exit<br>
+	// log out of mongo shell<br/>
+	exit<b/>
 
-	#log in as admin<br>
+	#log in as admin<br/>
 
-	mongo -u admin --authenticationDatabase admin -p<br>
+	mongo -u admin --authenticationDatabase admin -p<br/>
 
-	#create user etl<br>
+	#create user etl<br/>
 
-	// ensure the new user is created under admin<br>
+	// ensure the new user is created under admin<br/>
 	use admin<br>
 
-	// create new user and assign Read/Write permission only<br>
-    db.createUser({ <br>
-        user:"etl",<br> 
-        pwd:"etl",<br>
-        roles:[{ role: "readWrite", db: "etl"  }]  <br>
-    })<br>
+	// create new user and assign Read/Write permission only<br/>
+    db.createUser({ 
+        user:"etl", 
+        pwd:"etl",
+        roles:[{ role: "readWrite", db: "etl"  }]
+    })<br/>
 
-	#test if user was created<br>
+	#test if user was created<br/>
 
-	mongo -u etl --authenticationDatabase admin -p<br>
+	mongo -u etl --authenticationDatabase admin -p<br/>
+    
   </code>
-
-
-
-<img class="img-fluid" src="https://source.unsplash.com/Mn9Fa_wQH-M/800x450" alt="Demo Image">
-<span class="caption text-muted">To go places and do things that have never been done before – that’s what living is all about.</span>
