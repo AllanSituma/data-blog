@@ -24,11 +24,10 @@ background: "/img/posts/03.jpg"
 <p>Open your CLI and run the following codes line by line </p>
   <code>
     #Install Mongo<br>
-</code>
- <code>
+
 	sudo apt-get update<br>
-</code>	
-   sudo apt-get install mongodb<br>
+
+    sudo apt-get install mongodb<br>
 
 
 	#Set up auth<br>
@@ -42,37 +41,37 @@ background: "/img/posts/03.jpg"
 	// switch to the admin database<br>
 	use admin<br>
 
-	// create a new user to be stored in the admin database
-	db.createUser({ 
-    	user:"admin", 
-    	pwd:"xxxxxxxxx", 
-    	roles:[
-        	{ role: "userAdminAnyDatabase", db: "admin"  }
-    	] 
-		})
+	// create a new user to be stored in the admin database<br>
+	db.createUser({ <br>
+    	user:"admin", <br>
+    	pwd:"xxxxxxxxx", <br>
+    	roles:[<br>
+        	{ role: "userAdminAnyDatabase", db: "admin"  }<br>
+    	] <br>
+		})<br>
 
-	// log out of mongo shell
-	exit
+	// log out of mongo shell<br>
+	exit<br>
 
-	#log in as admin
+	#log in as admin<br>
 
-	mongo -u admin --authenticationDatabase admin -p
+	mongo -u admin --authenticationDatabase admin -p<br>
 
-	#create user etl
+	#create user etl<br>
 
-	// ensure the new user is created under admin
-	use admin
+	// ensure the new user is created under admin<br>
+	use admin<br>
 
-	// create new user and assign Read/Write permission only
-    db.createUser({ 
-        user:"etl", 
-        pwd:"etl",
-        roles:[{ role: "readWrite", db: "etl"  }]  
-    })
+	// create new user and assign Read/Write permission only<br>
+    db.createUser({ <br>
+        user:"etl",<br> 
+        pwd:"etl",<br>
+        roles:[{ role: "readWrite", db: "etl"  }]  <br>
+    })<br>
 
-	#test if user was created
+	#test if user was created<br>
 
-	mongo -u etl --authenticationDatabase admin -p
+	mongo -u etl --authenticationDatabase admin -p<br>
   </code>
 
 
