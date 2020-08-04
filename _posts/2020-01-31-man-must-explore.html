@@ -60,9 +60,19 @@ background: "/img/posts/06.jpg"
 <p>It sits at the end of the 'ELT' stack, i.e. transformation which is carried out within the database.It takes code and compiles it to SQL then runs this against the datawarehouse.The SQL code is stored in a <code>.sql</code> file called a model. These models are single <code>SELECT...</code> statements that define the resulting data set after compilation</p>
 
 <p>Using principles of software engineering, dbt enable analysts:</p>
-<ul>
-  <li>Document SQL code - This is stored in the form of a static <code>HTML</code> site that can be viewed by users of the data</li>
-  <li>Version control SQL models - since SQL statements are stored in files, version control can be applied to manage change of the SQL statements</li>
+
+<h6>Documentation</h6>
+<p>It has an in built feature that allows analysts to document details about their model. Dbt autogenerates this and is stored in the form of a static <code>HTML</code> site that can be viewed by users of the data.The documentation can be hosted in <code>s3,github or gitlab</code></p>
+
+<h6>Version control SQL models</h6>
+<p>Since SQL statements are stored in files, version control can be applied to manage change of the SQL statements.CI/CD process can be added on top of this such that datasets in the database are continously updated incase of model change</p>
+
+<h6>Automated Testing</h6>
+<p>dbt allows one to assert outcomes SQL statements written inside dbt. There are schema test - testing structure of columns in a table - and custom tests - these tests allow you to test the resulting data set produced by a model.</p>
+
+
+
+  <li> - 
 
 <h5>Gitlab CI</h5>
 
