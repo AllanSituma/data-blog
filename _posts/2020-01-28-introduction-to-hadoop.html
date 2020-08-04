@@ -1,17 +1,78 @@
 ---
 layout: post
-title: Introduction to hadoop
-subtitle: Hadoop is quite popular in the Big data scene, in this article we will take
-  a look at what is hadoop and also how to set up a development environment
+title: Quick Mongodb installation guide.
+subtitle: A practical guide to set up Mongodb locally for development purposes.
 date: 2020-01-28T23:45:13.000-04:00
 background: "/img/posts/03.jpg"
 
 ---
-<blockquote class="blockquote">The dreams of yesterday are the hopes of today and the reality of tomorrow. Science has not yet mastered prophecy. We predict too much for the next year and yet far too little for the next ten.</blockquote>
+<blockquote class="blockquote">Currently, seven out of the ten highest valued global brands are data companies. Data as the new oil? Clearly. When you invest in data, its storage, its management and its analysis, you’re investing in innovation ― Thomas Harrer</blockquote>
 
-<p>Never in all their history have men been able truly to conceive of the world as one: a single sphere, a globe, having the qualities of a globe, a round earth in which all the directions eventually meet, in which there is no center because every point, or none, is center — an equal earth which all men occupy as equals. The airman's earth, if free men make it, will be truly round: a globe in practice, not in theory.</p>
+<h2 class="section-heading">Introduction to Mongodb</h2>
 
-<h2 class="section-heading">The Final Frontier</h2>
+<p>Mongodb arose in the mid-2000s under the NoSQL banner for use in big data processing and applications whose data would not fit well in a conventional database. It is termed as an open source database management system whose architecture is made up of collections and documents i.e. a document oriented database that supports multiple forms of data</p>
+
+<p>Below is a quick recipe to install and get started with Mongodb</p>
+
+<h2 class="section-heading">Prerequisites</h2>
+<ul>
+  <li>Linux - Ubuntu 18.04 LTS</li>
+  <li>Good Internet</li>
+  <li>Basic CLI knowledge</li>
+</ul>
+
+<p>Open your CLI and run the following codes line by line
+  <code>
+    #Install Mongo
+
+	sudo apt-get update
+	sudo apt-get install mongodb
+
+
+	#Set up auth
+	nano /etc/mongodb.con
+
+	edit auth=true
+
+	#Create admin user
+
+
+	// switch to the admin database
+	use admin
+
+	// create a new user to be stored in the admin database
+	db.createUser({ 
+    	user:"admin", 
+    	pwd:"xxxxxxxxx", 
+    	roles:[
+        	{ role: "userAdminAnyDatabase", db: "admin"  }
+    	] 
+		})
+
+	// log out of mongo shell
+	exit
+
+	#log in as admin
+
+	mongo -u admin --authenticationDatabase admin -p
+
+	#create user etl
+
+	// ensure the new user is created under admin
+	use admin
+
+	// create new user and assign Read/Write permission only
+    db.createUser({ 
+        user:"etl", 
+        pwd:"etl",
+        roles:[{ role: "readWrite", db: "etl"  }]  
+    })
+
+	#test if user was created
+
+	mongo -u etl --authenticationDatabase admin -p
+  </code>
+</p>
 
 
 <img class="img-fluid" src="https://source.unsplash.com/Mn9Fa_wQH-M/800x450" alt="Demo Image">
