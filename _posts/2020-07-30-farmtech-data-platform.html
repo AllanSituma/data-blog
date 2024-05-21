@@ -2,17 +2,84 @@
 layout: post
 title: Farming Tech data platform
 subtitle: Building a data platform for a dairy agtech company
-date: 2020-07-30 14:45:13 +0000
+date: 2023-07-30 14:45:13 +0000
 background: "/img/posts/06.jpg"
 
 ---
 <blockquote class="blockquote">Every day, three times per second, we produce the equivalent of the amount of data that the Library of Congress has in its entire print collection, right? But most of it is like cat videos on YouTube or 13-year-olds exchanging text messages about the next Twilight movie.– Nate Silver</blockquote>
+
+<h1>Building an End-to-End Dairy Farmer App Data Platform: A Comprehensive Guide</h1>
+
+<a href="https://github.com/AllanSituma/dairy-farm-app-data-platform">Link to the GitHub project</a>
+
+<h2>Introduction</h2>
+
+<p>In the modern era of dairy farm management, data plays a crucial role in optimizing operations, improving productivity, and ensuring the well-being of livestock. To streamline data management and analytics for dairy farmers, we've developed the Dairy Farmer App Data Platform—an end-to-end solution designed to simplify data generation, processing, and visualization. The platform leverages a combination of modern data engineering and analytics tools to provide dairy farmers with actionable insights derived from their farm management data. For simulation purposes, MongoDB was used in place of Firebase Firestore to store user activity data, and DuckDB was used in place of BigQuery for data transformation and analysis. In this comprehensive guide, we'll walk you through the key components and features of the platform, as well as provide detailed instructions on setting it up for your own use.</p>
+
+<h2>Overview of the Data Platform</h2>
 <img class="img-fluid" src="{{site.baseurl}}/img/farming_tech_page.drawio.png" alt="loading data">
 
-<h2 class="section-heading">The problem</h2>
+
+<p>The Dairy Farmer App Data Platform is a robust solution that encompasses data generation, ETL (Extract, Transform, Load) processing, and visualization. At its core, the platform aims to empower dairy farmers with actionable insights derived from their farm management data. Here's a breakdown of the tools used in the platform:</p>
+
+<ul>
+  <li><strong>Docker:</strong> Docker is a containerization platform that allows developers to package applications and their dependencies into lightweight containers. It provides a consistent environment for running applications across different environments, making deployment and scaling easier.</li>
+  <li><strong>MySQL:</strong> MySQL is a popular open-source relational database management system (RDBMS) that is widely used for managing structured data. It provides a robust and scalable solution for storing and querying data.</li>
+  <li><strong>MongoDB:</strong> MongoDB is a document-oriented NoSQL database that is well-suited for storing unstructured or semi-structured data. It offers flexibility and scalability, making it ideal for handling diverse data types.</li>
+  <li><strong>Metabase:</strong> Metabase is an open-source data visualization and analytics tool that allows users to create interactive dashboards, charts, and reports. It provides a user-friendly interface for exploring and analyzing data, making it accessible to users with varying levels of technical expertise.</li>
+  <li><strong>dbt (data build tool):</strong> dbt is a command-line tool that enables data analysts and engineers to transform and organize data in a structured manner. It provides a framework for data modeling, allowing users to define relationships between datasets and perform complex data transformations.</li>
+</ul>
+
+<h2>Directory Structure and Setup Instructions</h2>
+
+<p>The directory structure of the Dairy Farmer App Data Platform is designed for ease of use and organization. Upon cloning the repository, users will find the following components:</p>
+
+<pre>
+dairy-farmerapp-data-platform/
+├── data_generator/
+│   ├── generate_mysql_data.py
+│   ├── generate_mongo_data.py
+│   ├── generate_user_activity_data.py
+├── etl_pipeline/
+│   ├── scripts/
+│   │   ├── extract_transform_load.py
+├── dbt/
+│   ├── models/
+│   │   ├── staging/
+│   │   │   ├── staging_mysql/
+│   │   │   │   ├── stg_farmers.sql
+│   │   │   │   ├── stg_animal_records.sql
+│   │   │   │   ├── stg_activity_tracking.sql
+│   │   │   │   ├── stg_inventory.sql
+│   │   │   ├── staging_mongo/
+│   │   │   │   ├── stg_user_activity.sql
+│   ├── dbt_project.yml
+├── docker-scripts/
+│   ├── Docker_dbt
+│   ├── Docker_database_generator
+├── docker-compose.yml
+├── README.md
+</pre>
+
+<p>To set up the Dairy Farmer App Data Platform, follow these steps:</p>
+
+<ol>
+  <li><strong>Clone the Repository:</strong> Use <code>git clone https://github.com/your-username/dairy-farmerapp-data-platform.git</code> to clone the repository to your local machine.</li>
+  <li><strong>Run Docker Compose:</strong> Navigate to the project directory and run <code>docker-compose up</code> to start the Docker containers. This will set up the necessary infrastructure, including MySQL, MongoDB, and Metabase.</li>
+  <li><strong>Access Generated Data:</strong> Once the containers are up and running, you can access the generated mock data in the respective databases (MySQL and MongoDB).</li>
+  <li><strong>Run ETL Pipeline:</strong> Execute the ETL script <code>extract_transform_load.py</code> located in the <code>etl_pipeline/scripts</code> directory to orchestrate the ETL process. This script will extract data from various sources, transform it, and load it into a data warehouse.</li>
+  <li><strong>Connecting to Metabase:</strong> Open a web browser and navigate to <code>http://localhost:3000</code> to access Metabase. Follow the on-screen instructions to set up Metabase and connect it to the data warehouse. Once connected, you can start visualizing and analyzing your dairy farm data.</li>
+</ol>
+
+<h2>Usage and Contribution</h2>
+
+<p>The Dairy Farmer App Data Platform is designed to be user-friendly and extensible. Users can utilize the provided scripts to generate mock data, orchestrate the ETL process, and visualize the data using Metabase. We encourage contributions to the project—whether it's adding new features, improving existing functionality, or fixing bugs. Feel free to fork the repository, make changes, and submit pull requests to contribute to the platform's development.</p>
+
+<h2>Conclusion</h2>
+
+<p>In conclusion, the Dairy Farmer App Data Platform provides dairy farmers with a comprehensive solution for managing and analyzing their farm data. By leveraging modern data engineering and analytics tools, farmers can gain valuable insights that enable them to make informed decisions and optimize their operations. For simulation purposes, MongoDB was used in place of Firebase Firestore to store user activity data, and DuckDB was used in place of BigQuery for data transformation and analysis. We invite you to explore the Dairy Farmer App Data Platform and discover how it can empower you to take your dairy farm management to the next level.</p>
 
 
-<h2 class="section-heading">The solution</h2>
 
 
 <p>Toptal skill reference:<a href="https://www.toptal.com/data-modeling-analysts">Data modeling analyst</a></p>
